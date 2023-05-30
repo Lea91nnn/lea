@@ -1,0 +1,54 @@
+# Taro Ball Store Application
+
+class TaroBall:
+    def __init__(self, name, price, description):
+        self.name = name
+        self.price = price
+        self.description = description
+
+class Store:
+    def __init__(self):
+        self.products = []
+
+    def add_product(self, product):
+        self.products.append(product)
+
+    def display_products(self):
+        if len(self.products) == 0:
+            print("No products available.")
+        else:
+            print("Available Taro Balls:")
+            for i, product in enumerate(self.products):
+                print(f"{i + 1}. {product.name} - ${product.price}\n   {product.description}\n")
+
+def main():
+    store = Store()
+
+    # Sample products
+    taro_ball_1 = TaroBall("Classic Taro Ball", 2.99, "Soft and chewy taro balls in a sweet syrup.")
+    taro_ball_2 = TaroBall("Matcha Taro Ball", 3.99, "Taro balls infused with matcha flavor and served with red bean paste.")
+    taro_ball_3 = TaroBall("Brown Sugar Taro Ball", 4.49, "Caramelized brown sugar-coated taro balls with a hint of ginger.")
+
+    store.add_product(taro_ball_1)
+    store.add_product(taro_ball_2)
+    store.add_product(taro_ball_3)
+
+    while True:
+        print("Welcome to the Taro Ball Store!")
+        print("1. View Products")
+        print("2. Exit")
+
+        choice = input("Please select an option: ")
+
+        if choice == "1":
+            store.display_products()
+        elif choice == "2":
+            print("Thank you for visiting the Taro Ball Store!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+
